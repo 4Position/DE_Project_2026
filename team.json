@@ -1,0 +1,31 @@
+{
+  "team_number": "T0067",
+
+  "group_lead": {
+    "name": "Meet Gupta",
+    "enrollment_no": "2501010697",
+    "github": "meetgupta996"
+  },
+
+  "members": [
+    {
+      "name": "Gautam Bhardwaj",
+      "enrollment_no": "2501010682",
+      "github": "gautam-bwdj"
+    },
+    {
+      "name": "Ojaswa Chauhan",
+      "enrollment_no": "2501010312",
+      "github": "O-zayy"
+    },
+    {
+      "name": "Aaryan Sharma",
+      "enrollment_no": "2501010007",
+      "github": "aaryangif"
+    }
+  ],
+
+  "postgres_version": "18.6",
+
+  "laptop_used_for_benchmarks": "MacBook Pro, Apple M4, 16GB RAM"
+}
