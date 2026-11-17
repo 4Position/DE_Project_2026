@@ -1,0 +1,78 @@
+=== R01 run 1 ===
+Unique  (cost=4081.86..4082.09 rows=2 width=45) (actual time=10.585..11.574 rows=1.00 loops=1)
+  Buffers: shared hit=1618
+  ->  Gather Merge  (cost=4081.86..4082.09 rows=2 width=45) (actual time=10.583..11.572 rows=1.00 loops=1)
+        Workers Planned: 1
+        Workers Launched: 1
+        Buffers: shared hit=1618
+        ->  Sort  (cost=3081.85..3081.85 rows=1 width=45) (actual time=7.182..7.182 rows=0.50 loops=2)
+              Sort Key: v.title_id, v.started_at DESC
+              Sort Method: quicksort  Memory: 25kB
+              Buffers: shared hit=1618
+              Worker 0:  Sort Method: quicksort  Memory: 25kB
+              ->  Nested Loop  (cost=0.28..3081.84 rows=1 width=45) (actual time=5.379..7.162 rows=0.50 loops=2)
+                    Buffers: shared hit=1603
+                    ->  Parallel Seq Scan on viewing_activity v  (cost=0.00..3073.54 rows=1 width=20) (actual time=5.373..7.156 rows=0.50 loops=2)
+                          Filter: ((NOT completed) AND (profile_id = 7043))
+                          Rows Removed by Filter: 100200
+                          Buffers: shared hit=1600
+                    ->  Index Scan using titles_pkey on titles t  (cost=0.28..8.30 rows=1 width=29) (actual time=0.009..0.009 rows=1.00 loops=1)
+                          Index Cond: (title_id = v.title_id)
+                          Index Searches: 1
+                          Buffers: shared hit=3
+Planning:
+  Buffers: shared hit=142
+Planning Time: 0.669 ms
+Execution Time: 11.856 ms
+=== R01 run 2 ===
+Unique  (cost=4081.86..4082.09 rows=2 width=45) (actual time=8.726..9.839 rows=1.00 loops=1)
+  Buffers: shared hit=1618
+  ->  Gather Merge  (cost=4081.86..4082.09 rows=2 width=45) (actual time=8.723..9.835 rows=1.00 loops=1)
+        Workers Planned: 1
+        Workers Launched: 1
+        Buffers: shared hit=1618
+        ->  Sort  (cost=3081.85..3081.85 rows=1 width=45) (actual time=7.122..7.131 rows=0.50 loops=2)
+              Sort Key: v.title_id, v.started_at DESC
+              Sort Method: quicksort  Memory: 25kB
+              Buffers: shared hit=1618
+              Worker 0:  Sort Method: quicksort  Memory: 25kB
+              ->  Nested Loop  (cost=0.28..3081.84 rows=1 width=45) (actual time=5.154..7.110 rows=0.50 loops=2)
+                    Buffers: shared hit=1603
+                    ->  Parallel Seq Scan on viewing_activity v  (cost=0.00..3073.54 rows=1 width=20) (actual time=5.150..7.105 rows=0.50 loops=2)
+                          Filter: ((NOT completed) AND (profile_id = 7043))
+                          Rows Removed by Filter: 100200
+                          Buffers: shared hit=1600
+                    ->  Index Scan using titles_pkey on titles t  (cost=0.28..8.30 rows=1 width=29) (actual time=0.006..0.006 rows=1.00 loops=1)
+                          Index Cond: (title_id = v.title_id)
+                          Index Searches: 1
+                          Buffers: shared hit=3
+Planning:
+  Buffers: shared hit=142
+Planning Time: 0.506 ms
+Execution Time: 9.900 ms
+=== R01 run 3 ===
+Unique  (cost=4081.86..4082.09 rows=2 width=45) (actual time=8.659..9.690 rows=1.00 loops=1)
+  Buffers: shared hit=1619
+  ->  Gather Merge  (cost=4081.86..4082.09 rows=2 width=45) (actual time=8.659..9.689 rows=1.00 loops=1)
+        Workers Planned: 1
+        Workers Launched: 1
+        Buffers: shared hit=1619
+        ->  Sort  (cost=3081.85..3081.85 rows=1 width=45) (actual time=6.910..6.910 rows=0.50 loops=2)
+              Sort Key: v.title_id, v.started_at DESC
+              Sort Method: quicksort  Memory: 25kB
+              Buffers: shared hit=1619
+              Worker 0:  Sort Method: quicksort  Memory: 25kB
+              ->  Nested Loop  (cost=0.28..3081.84 rows=1 width=45) (actual time=5.101..6.893 rows=0.50 loops=2)
+                    Buffers: shared hit=1604
+                    ->  Parallel Seq Scan on viewing_activity v  (cost=0.00..3073.54 rows=1 width=20) (actual time=5.095..6.887 rows=0.50 loops=2)
+                          Filter: ((NOT completed) AND (profile_id = 7043))
+                          Rows Removed by Filter: 100200
+                          Buffers: shared hit=1600
+                    ->  Index Scan using titles_pkey on titles t  (cost=0.28..8.30 rows=1 width=29) (actual time=0.010..0.010 rows=1.00 loops=1)
+                          Index Cond: (title_id = v.title_id)
+                          Index Searches: 1
+                          Buffers: shared hit=4
+Planning:
+  Buffers: shared hit=142
+Planning Time: 0.497 ms
+Execution Time: 9.751 ms
