@@ -1,0 +1,45 @@
+=== R10 run 1 ===
+Index Scan using idx_accounts_lower_email on accounts  (cost=0.41..8.43 rows=1 width=15) (actual time=0.433..0.434 rows=1.00 loops=1)
+  Index Cond: (lower((email)::text) = 'arjun.chopra1409@yahoo.com'::text)
+  Index Searches: 1
+  Buffers: shared hit=1 read=3 dirtied=1
+Planning:
+  Buffers: shared hit=130 read=5
+Planning Time: 1.265 ms
+Execution Time: 0.463 ms
+=== R10 run 2 ===
+Index Scan using idx_accounts_lower_email on accounts  (cost=0.41..8.43 rows=1 width=15) (actual time=0.017..0.017 rows=1.00 loops=1)
+  Index Cond: (lower((email)::text) = 'arjun.chopra1409@yahoo.com'::text)
+  Index Searches: 1
+  Buffers: shared hit=4
+Planning:
+  Buffers: shared hit=135
+Planning Time: 0.484 ms
+Execution Time: 0.047 ms
+=== R10 run 3 ===
+Index Scan using idx_accounts_lower_email on accounts  (cost=0.41..8.43 rows=1 width=15) (actual time=0.028..0.030 rows=1.00 loops=1)
+  Index Cond: (lower((email)::text) = 'arjun.chopra1409@yahoo.com'::text)
+  Index Searches: 1
+  Buffers: shared hit=4
+Planning:
+  Buffers: shared hit=135
+Planning Time: 0.639 ms
+Execution Time: 0.077 ms
+=== R10 run 4 ===
+Index Scan using idx_accounts_lower_email on accounts  (cost=0.41..8.43 rows=1 width=15) (actual time=0.018..0.018 rows=1.00 loops=1)
+  Index Cond: (lower((email)::text) = 'arjun.chopra1409@yahoo.com'::text)
+  Index Searches: 1
+  Buffers: shared hit=4
+Planning:
+  Buffers: shared hit=135
+Planning Time: 0.483 ms
+Execution Time: 0.048 ms
+=== R10 run 5 ===
+Index Scan using idx_accounts_lower_email on accounts  (cost=0.41..8.43 rows=1 width=15) (actual time=0.022..0.022 rows=1.00 loops=1)
+  Index Cond: (lower((email)::text) = 'arjun.chopra1409@yahoo.com'::text)
+  Index Searches: 1
+  Buffers: shared hit=4
+Planning:
+  Buffers: shared hit=135
+Planning Time: 0.547 ms
+Execution Time: 0.057 ms

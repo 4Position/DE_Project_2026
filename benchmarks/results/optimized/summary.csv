@@ -1,0 +1,31 @@
+query_id,type,avg_ms,median_ms,min_ms,max_ms,scan_nodes
+R01,READ,0.195,0.080,0.075,0.661,Index Only Scan using idx_va_unfinished_profile_title_time on viewing_activity | Index Scan using titles_pkey on titles
+R02,READ,0.117,0.060,0.055,0.352,Index Scan using uq_episode_position on episodes
+R03,READ,1.017,0.986,0.911,1.133,Index Only Scan using idx_va_started_desc_cover on viewing_activity | Seq Scan on titles
+R04,READ,0.693,0.630,0.581,0.934,Seq Scan on titles | Seq Scan on genres | Index Only Scan using idx_title_genres_genre_title on title_genres
+R05,READ,0.369,0.363,0.344,0.418,Bitmap Heap Scan on titles | Bitmap Index Scan on idx_titles_name_trgm
+R06,READ,0.288,0.135,0.107,0.920,Index Scan using my_list_pkey on my_list | Index Scan using titles_pkey on titles
+R07,READ,0.037,0.036,0.035,0.042,Index Scan using uq_episode_position on episodes
+R08,READ,3.319,3.175,3.074,3.958,Index Only Scan using idx_va_started_desc_cover on viewing_activity
+R09,READ,26.017,25.675,25.523,27.400,Index Scan using idx_va_started_desc_cover on viewing_activity | Seq Scan on title_genres | Seq Scan on genres
+R10,READ,0.138,0.057,0.047,0.463,Index Scan using idx_accounts_lower_email on accounts
+R11,READ,5.805,5.200,5.057,8.394,Seq Scan on accounts | Index Only Scan using idx_invoices_failed_period_account on invoices
+R12,READ,2.236,2.200,2.179,2.393,Seq Scan on accounts
+R13,READ,18.630,18.575,18.332,19.113,Seq Scan on viewing_activity | Index Scan using uq_episode_position on episodes
+R14,READ,39.780,40.005,38.730,40.375,Seq Scan on viewing_activity | Seq Scan on profiles | Seq Scan on titles
+R15,READ,8.080,8.045,7.960,8.227,Seq Scan on accounts | Seq Scan on plans
+R16,READ,241.419,238.595,234.721,251.010,Seq Scan on viewing_activity | Seq Scan on profiles | Seq Scan on accounts | Seq Scan on plans
+R17,READ,10.994,10.281,10.264,13.867,Seq Scan on ratings | Seq Scan on titles
+R18,READ,33.706,33.583,33.011,34.250,Index Scan using idx_va_started_desc_cover on viewing_activity
+R19,READ,36.677,36.953,35.996,37.272,Seq Scan on viewing_activity | Seq Scan on titles
+R20,READ,4.945,4.988,4.826,5.041,Seq Scan on my_list | Seq Scan on titles
+R21,READ,0.668,0.694,0.517,0.762,Index Scan using idx_accounts_hold_billing_date on accounts
+R22,READ,0.134,0.130,0.126,0.150,Bitmap Heap Scan on titles | Bitmap Index Scan on idx_titles_leaving_on
+R23,READ,18.901,18.508,18.384,20.472,Index Only Scan using idx_va_started_desc_cover on viewing_activity
+R24,READ,0.121,0.058,0.054,0.361,Index Scan using idx_profiles_account_created on profiles
+R25,READ,0.956,0.768,0.748,1.631,Index Only Scan using title_genres_pkey on title_genres | Index Only Scan using idx_title_genres_genre_title on title_genres
+W01,WRITE,1.423,1.032,0.975,3.029,Index Scan using uq_episode_position on episodes
+W02,WRITE,1.056,0.969,0.917,1.453,(no scan)
+W03,WRITE,0.879,0.443,0.405,2.246,Seq Scan on plans | Index Scan using accounts_pkey on accounts
+W04,WRITE,171.705,169.475,168.790,179.275,Seq Scan on accounts | Seq Scan on plans
+W05,WRITE,20.714,18.359,15.149,34.416,Seq Scan on accounts | Bitmap Heap Scan on invoices | Bitmap Index Scan on idx_invoices_failed_period_account

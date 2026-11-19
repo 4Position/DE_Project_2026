@@ -1,0 +1,90 @@
+=== R01 run 1 ===
+Unique  (cost=0.70..25.06 rows=2 width=45) (actual time=0.423..0.424 rows=1.00 loops=1)
+  Buffers: shared hit=3 read=4
+  ->  Nested Loop  (cost=0.70..25.05 rows=2 width=45) (actual time=0.422..0.423 rows=1.00 loops=1)
+        Buffers: shared hit=3 read=4
+        ->  Index Only Scan using idx_va_unfinished_profile_title_time on viewing_activity v  (cost=0.42..8.45 rows=2 width=20) (actual time=0.378..0.378 rows=1.00 loops=1)
+              Index Cond: (profile_id = 7043)
+              Heap Fetches: 0
+              Index Searches: 1
+              Buffers: shared hit=1 read=3
+        ->  Index Scan using titles_pkey on titles t  (cost=0.28..8.30 rows=1 width=29) (actual time=0.042..0.042 rows=1.00 loops=1)
+              Index Cond: (title_id = v.title_id)
+              Index Searches: 1
+              Buffers: shared hit=2 read=1
+Planning:
+  Buffers: shared hit=246 read=13 dirtied=6
+Planning Time: 2.848 ms
+Execution Time: 0.661 ms
+=== R01 run 2 ===
+Unique  (cost=0.70..25.06 rows=2 width=45) (actual time=0.023..0.024 rows=1.00 loops=1)
+  Buffers: shared hit=7
+  ->  Nested Loop  (cost=0.70..25.05 rows=2 width=45) (actual time=0.022..0.023 rows=1.00 loops=1)
+        Buffers: shared hit=7
+        ->  Index Only Scan using idx_va_unfinished_profile_title_time on viewing_activity v  (cost=0.42..8.45 rows=2 width=20) (actual time=0.011..0.012 rows=1.00 loops=1)
+              Index Cond: (profile_id = 7043)
+              Heap Fetches: 0
+              Index Searches: 1
+              Buffers: shared hit=4
+        ->  Index Scan using titles_pkey on titles t  (cost=0.28..8.30 rows=1 width=29) (actual time=0.008..0.008 rows=1.00 loops=1)
+              Index Cond: (title_id = v.title_id)
+              Index Searches: 1
+              Buffers: shared hit=3
+Planning:
+  Buffers: shared hit=257
+Planning Time: 1.091 ms
+Execution Time: 0.080 ms
+=== R01 run 3 ===
+Unique  (cost=0.70..25.06 rows=2 width=45) (actual time=0.020..0.021 rows=1.00 loops=1)
+  Buffers: shared hit=7
+  ->  Nested Loop  (cost=0.70..25.05 rows=2 width=45) (actual time=0.019..0.020 rows=1.00 loops=1)
+        Buffers: shared hit=7
+        ->  Index Only Scan using idx_va_unfinished_profile_title_time on viewing_activity v  (cost=0.42..8.45 rows=2 width=20) (actual time=0.008..0.009 rows=1.00 loops=1)
+              Index Cond: (profile_id = 7043)
+              Heap Fetches: 0
+              Index Searches: 1
+              Buffers: shared hit=4
+        ->  Index Scan using titles_pkey on titles t  (cost=0.28..8.30 rows=1 width=29) (actual time=0.008..0.008 rows=1.00 loops=1)
+              Index Cond: (title_id = v.title_id)
+              Index Searches: 1
+              Buffers: shared hit=3
+Planning:
+  Buffers: shared hit=257
+Planning Time: 1.011 ms
+Execution Time: 0.077 ms
+=== R01 run 4 ===
+Unique  (cost=0.70..25.06 rows=2 width=45) (actual time=0.021..0.021 rows=1.00 loops=1)
+  Buffers: shared hit=7
+  ->  Nested Loop  (cost=0.70..25.05 rows=2 width=45) (actual time=0.019..0.019 rows=1.00 loops=1)
+        Buffers: shared hit=7
+        ->  Index Only Scan using idx_va_unfinished_profile_title_time on viewing_activity v  (cost=0.42..8.45 rows=2 width=20) (actual time=0.009..0.010 rows=1.00 loops=1)
+              Index Cond: (profile_id = 7043)
+              Heap Fetches: 0
+              Index Searches: 1
+              Buffers: shared hit=4
+        ->  Index Scan using titles_pkey on titles t  (cost=0.28..8.30 rows=1 width=29) (actual time=0.007..0.007 rows=1.00 loops=1)
+              Index Cond: (title_id = v.title_id)
+              Index Searches: 1
+              Buffers: shared hit=3
+Planning:
+  Buffers: shared hit=257
+Planning Time: 1.014 ms
+Execution Time: 0.075 ms
+=== R01 run 5 ===
+Unique  (cost=0.70..25.06 rows=2 width=45) (actual time=0.022..0.023 rows=1.00 loops=1)
+  Buffers: shared hit=7
+  ->  Nested Loop  (cost=0.70..25.05 rows=2 width=45) (actual time=0.020..0.021 rows=1.00 loops=1)
+        Buffers: shared hit=7
+        ->  Index Only Scan using idx_va_unfinished_profile_title_time on viewing_activity v  (cost=0.42..8.45 rows=2 width=20) (actual time=0.010..0.010 rows=1.00 loops=1)
+              Index Cond: (profile_id = 7043)
+              Heap Fetches: 0
+              Index Searches: 1
+              Buffers: shared hit=4
+        ->  Index Scan using titles_pkey on titles t  (cost=0.28..8.30 rows=1 width=29) (actual time=0.009..0.009 rows=1.00 loops=1)
+              Index Cond: (title_id = v.title_id)
+              Index Searches: 1
+              Buffers: shared hit=3
+Planning:
+  Buffers: shared hit=257
+Planning Time: 1.090 ms
+Execution Time: 0.080 ms

@@ -1,0 +1,45 @@
+=== R21 run 1 ===
+Index Scan using idx_accounts_hold_billing_date on accounts  (cost=0.15..19.44 rows=22 width=34) (actual time=0.024..0.462 rows=739.00 loops=1)
+  Index Cond: (next_billing_date < '2026-07-01'::date)
+  Index Searches: 1
+  Buffers: shared hit=291 read=1
+Planning:
+  Buffers: shared hit=163
+Planning Time: 0.600 ms
+Execution Time: 0.517 ms
+=== R21 run 2 ===
+Index Scan using idx_accounts_hold_billing_date on accounts  (cost=0.15..19.44 rows=22 width=34) (actual time=0.011..0.629 rows=739.00 loops=1)
+  Index Cond: (next_billing_date < '2026-07-01'::date)
+  Index Searches: 1
+  Buffers: shared hit=292
+Planning:
+  Buffers: shared hit=163
+Planning Time: 0.569 ms
+Execution Time: 0.694 ms
+=== R21 run 3 ===
+Index Scan using idx_accounts_hold_billing_date on accounts  (cost=0.15..19.44 rows=22 width=34) (actual time=0.010..0.611 rows=739.00 loops=1)
+  Index Cond: (next_billing_date < '2026-07-01'::date)
+  Index Searches: 1
+  Buffers: shared hit=292
+Planning:
+  Buffers: shared hit=163
+Planning Time: 0.561 ms
+Execution Time: 0.670 ms
+=== R21 run 4 ===
+Index Scan using idx_accounts_hold_billing_date on accounts  (cost=0.15..19.44 rows=22 width=34) (actual time=0.016..0.699 rows=739.00 loops=1)
+  Index Cond: (next_billing_date < '2026-07-01'::date)
+  Index Searches: 1
+  Buffers: shared hit=292
+Planning:
+  Buffers: shared hit=163
+Planning Time: 0.606 ms
+Execution Time: 0.762 ms
+=== R21 run 5 ===
+Index Scan using idx_accounts_hold_billing_date on accounts  (cost=0.15..19.44 rows=22 width=34) (actual time=0.013..0.635 rows=739.00 loops=1)
+  Index Cond: (next_billing_date < '2026-07-01'::date)
+  Index Searches: 1
+  Buffers: shared hit=292
+Planning:
+  Buffers: shared hit=163
+Planning Time: 0.633 ms
+Execution Time: 0.699 ms

@@ -1,0 +1,85 @@
+=== R13 run 1 ===
+Hash Right Anti Join  (cost=38.58..5598.61 rows=6 width=8) (actual time=18.496..18.501 rows=8.00 loops=1)
+  Hash Cond: (v.episode_id = e.episode_id)
+  Buffers: shared hit=1601 read=2
+  ->  Seq Scan on viewing_activity v  (cost=0.00..3604.01 rows=200401 width=4) (actual time=0.005..8.859 rows=200401.00 loops=1)
+        Buffers: shared hit=1600
+  ->  Hash  (cost=38.35..38.35 rows=18 width=8) (actual time=0.141..0.141 rows=31.00 loops=1)
+        Buckets: 1024  Batches: 1  Memory Usage: 10kB
+        Buffers: shared hit=1 read=2
+        ->  Index Scan using uq_episode_position on episodes e  (cost=0.29..38.35 rows=18 width=8) (actual time=0.129..0.133 rows=31.00 loops=1)
+              Index Cond: (title_id = 2523)
+              Index Searches: 1
+              Buffers: shared hit=1 read=2
+Planning:
+  Buffers: shared hit=326 read=3
+Planning Time: 1.545 ms
+Execution Time: 18.554 ms
+=== R13 run 2 ===
+Hash Right Anti Join  (cost=38.58..5598.61 rows=6 width=8) (actual time=18.279..18.284 rows=8.00 loops=1)
+  Hash Cond: (v.episode_id = e.episode_id)
+  Buffers: shared hit=1603
+  ->  Seq Scan on viewing_activity v  (cost=0.00..3604.01 rows=200401 width=4) (actual time=0.005..8.853 rows=200401.00 loops=1)
+        Buffers: shared hit=1600
+  ->  Hash  (cost=38.35..38.35 rows=18 width=8) (actual time=0.017..0.018 rows=31.00 loops=1)
+        Buckets: 1024  Batches: 1  Memory Usage: 10kB
+        Buffers: shared hit=3
+        ->  Index Scan using uq_episode_position on episodes e  (cost=0.29..38.35 rows=18 width=8) (actual time=0.007..0.011 rows=31.00 loops=1)
+              Index Cond: (title_id = 2523)
+              Index Searches: 1
+              Buffers: shared hit=3
+Planning:
+  Buffers: shared hit=329
+Planning Time: 0.832 ms
+Execution Time: 18.332 ms
+=== R13 run 3 ===
+Hash Right Anti Join  (cost=38.58..5598.61 rows=6 width=8) (actual time=18.522..18.528 rows=8.00 loops=1)
+  Hash Cond: (v.episode_id = e.episode_id)
+  Buffers: shared hit=1603
+  ->  Seq Scan on viewing_activity v  (cost=0.00..3604.01 rows=200401 width=4) (actual time=0.005..8.972 rows=200401.00 loops=1)
+        Buffers: shared hit=1600
+  ->  Hash  (cost=38.35..38.35 rows=18 width=8) (actual time=0.018..0.019 rows=31.00 loops=1)
+        Buckets: 1024  Batches: 1  Memory Usage: 10kB
+        Buffers: shared hit=3
+        ->  Index Scan using uq_episode_position on episodes e  (cost=0.29..38.35 rows=18 width=8) (actual time=0.008..0.012 rows=31.00 loops=1)
+              Index Cond: (title_id = 2523)
+              Index Searches: 1
+              Buffers: shared hit=3
+Planning:
+  Buffers: shared hit=329
+Planning Time: 0.849 ms
+Execution Time: 18.575 ms
+=== R13 run 4 ===
+Hash Right Anti Join  (cost=38.58..5598.61 rows=6 width=8) (actual time=18.519..18.525 rows=8.00 loops=1)
+  Hash Cond: (v.episode_id = e.episode_id)
+  Buffers: shared hit=1603
+  ->  Seq Scan on viewing_activity v  (cost=0.00..3604.01 rows=200401 width=4) (actual time=0.005..8.947 rows=200401.00 loops=1)
+        Buffers: shared hit=1600
+  ->  Hash  (cost=38.35..38.35 rows=18 width=8) (actual time=0.019..0.020 rows=31.00 loops=1)
+        Buckets: 1024  Batches: 1  Memory Usage: 10kB
+        Buffers: shared hit=3
+        ->  Index Scan using uq_episode_position on episodes e  (cost=0.29..38.35 rows=18 width=8) (actual time=0.009..0.012 rows=31.00 loops=1)
+              Index Cond: (title_id = 2523)
+              Index Searches: 1
+              Buffers: shared hit=3
+Planning:
+  Buffers: shared hit=329
+Planning Time: 0.850 ms
+Execution Time: 18.575 ms
+=== R13 run 5 ===
+Hash Right Anti Join  (cost=38.58..5598.61 rows=6 width=8) (actual time=19.059..19.064 rows=8.00 loops=1)
+  Hash Cond: (v.episode_id = e.episode_id)
+  Buffers: shared hit=1603
+  ->  Seq Scan on viewing_activity v  (cost=0.00..3604.01 rows=200401 width=4) (actual time=0.005..9.388 rows=200401.00 loops=1)
+        Buffers: shared hit=1600
+  ->  Hash  (cost=38.35..38.35 rows=18 width=8) (actual time=0.020..0.021 rows=31.00 loops=1)
+        Buckets: 1024  Batches: 1  Memory Usage: 10kB
+        Buffers: shared hit=3
+        ->  Index Scan using uq_episode_position on episodes e  (cost=0.29..38.35 rows=18 width=8) (actual time=0.009..0.013 rows=31.00 loops=1)
+              Index Cond: (title_id = 2523)
+              Index Searches: 1
+              Buffers: shared hit=3
+Planning:
+  Buffers: shared hit=329
+Planning Time: 0.868 ms
+Execution Time: 19.113 ms
