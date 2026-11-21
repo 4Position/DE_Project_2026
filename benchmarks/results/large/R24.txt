@@ -1,0 +1,27 @@
+=== R24 run 1 ===
+Index Scan using idx_profiles_account_created on profiles  (cost=0.43..13.75 rows=4 width=22) (actual time=0.022..0.030 rows=4.00 loops=1)
+  Index Cond: (account_id = 1409)
+  Index Searches: 1
+  Buffers: shared read=5
+Planning:
+  Buffers: shared hit=121 read=3
+Planning Time: 0.466 ms
+Execution Time: 0.064 ms
+=== R24 run 2 ===
+Index Scan using idx_profiles_account_created on profiles  (cost=0.43..13.75 rows=4 width=22) (actual time=0.009..0.015 rows=4.00 loops=1)
+  Index Cond: (account_id = 1409)
+  Index Searches: 1
+  Buffers: shared hit=5
+Planning:
+  Buffers: shared hit=124
+Planning Time: 0.351 ms
+Execution Time: 0.048 ms
+=== R24 run 3 ===
+Index Scan using idx_profiles_account_created on profiles  (cost=0.43..13.75 rows=4 width=22) (actual time=0.013..0.019 rows=4.00 loops=1)
+  Index Cond: (account_id = 1409)
+  Index Searches: 1
+  Buffers: shared hit=5
+Planning:
+  Buffers: shared hit=124
+Planning Time: 0.414 ms
+Execution Time: 0.058 ms

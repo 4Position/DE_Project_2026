@@ -1,0 +1,90 @@
+=== R11 run 1 ===
+Gather Merge  (cost=11500.09..13068.67 rows=13468 width=13) (actual time=39.771..43.051 rows=27740.00 loops=1)
+  Workers Planned: 2
+  Workers Launched: 2
+  Buffers: shared hit=207 read=6388
+  ->  Sort  (cost=10500.07..10514.10 rows=5612 width=13) (actual time=37.047..37.378 rows=9246.67 loops=3)
+        Sort Key: i.account_id
+        Sort Method: quicksort  Memory: 683kB
+        Buffers: shared hit=207 read=6388
+        Worker 0:  Sort Method: quicksort  Memory: 667kB
+        Worker 1:  Sort Method: quicksort  Memory: 671kB
+        ->  Parallel Hash Join  (cost=633.44..10150.60 rows=5612 width=13) (actual time=2.189..35.919 rows=9246.67 loops=3)
+              Hash Cond: (a.account_id = i.account_id)
+              Buffers: shared hit=193 read=6388
+              ->  Parallel Seq Scan on accounts a  (cost=0.00..9036.17 rows=183236 width=4) (actual time=0.071..20.047 rows=146666.33 loops=3)
+                    Filter: ((status)::text = ANY ('{ACTIVE,ON_HOLD}'::text[]))
+                    Rows Removed by Filter: 20000
+                    Buffers: shared hit=190 read=6248
+              ->  Parallel Hash  (cost=520.84..520.84 rows=9008 width=13) (actual time=2.087..2.087 rows=9267.67 loops=3)
+                    Buckets: 32768 (originally 16384)  Batches: 1 (originally 1)  Memory Usage: 1760kB
+                    Buffers: shared hit=3 read=140
+                    ->  Parallel Index Only Scan using idx_invoices_failed_period_account on invoices i  (cost=0.42..520.84 rows=9008 width=13) (actual time=0.067..1.042 rows=9267.67 loops=3)
+                          Index Cond: (billing_period_start = '2026-06-01'::date)
+                          Heap Fetches: 0
+                          Index Searches: 1
+                          Buffers: shared hit=3 read=140
+Planning:
+  Buffers: shared hit=303 read=13
+Planning Time: 1.805 ms
+Execution Time: 44.050 ms
+=== R11 run 2 ===
+Gather Merge  (cost=11500.09..13068.67 rows=13468 width=13) (actual time=38.423..41.603 rows=27740.00 loops=1)
+  Workers Planned: 2
+  Workers Launched: 2
+  Buffers: shared hit=629 read=5966
+  ->  Sort  (cost=10500.07..10514.10 rows=5612 width=13) (actual time=35.961..36.285 rows=9246.67 loops=3)
+        Sort Key: i.account_id
+        Sort Method: quicksort  Memory: 679kB
+        Buffers: shared hit=629 read=5966
+        Worker 0:  Sort Method: quicksort  Memory: 667kB
+        Worker 1:  Sort Method: quicksort  Memory: 675kB
+        ->  Parallel Hash Join  (cost=633.44..10150.60 rows=5612 width=13) (actual time=1.930..34.965 rows=9246.67 loops=3)
+              Hash Cond: (a.account_id = i.account_id)
+              Buffers: shared hit=615 read=5966
+              ->  Parallel Seq Scan on accounts a  (cost=0.00..9036.17 rows=183236 width=4) (actual time=0.068..19.589 rows=146666.33 loops=3)
+                    Filter: ((status)::text = ANY ('{ACTIVE,ON_HOLD}'::text[]))
+                    Rows Removed by Filter: 20000
+                    Buffers: shared hit=472 read=5966
+              ->  Parallel Hash  (cost=520.84..520.84 rows=9008 width=13) (actual time=1.829..1.829 rows=9267.67 loops=3)
+                    Buckets: 32768 (originally 16384)  Batches: 1 (originally 1)  Memory Usage: 1728kB
+                    Buffers: shared hit=143
+                    ->  Parallel Index Only Scan using idx_invoices_failed_period_account on invoices i  (cost=0.42..520.84 rows=9008 width=13) (actual time=0.033..0.806 rows=9267.67 loops=3)
+                          Index Cond: (billing_period_start = '2026-06-01'::date)
+                          Heap Fetches: 0
+                          Index Searches: 1
+                          Buffers: shared hit=143
+Planning:
+  Buffers: shared hit=316
+Planning Time: 0.925 ms
+Execution Time: 42.599 ms
+=== R11 run 3 ===
+Gather Merge  (cost=11500.09..13068.67 rows=13468 width=13) (actual time=38.822..41.925 rows=27740.00 loops=1)
+  Workers Planned: 2
+  Workers Launched: 2
+  Buffers: shared hit=911 read=5684
+  ->  Sort  (cost=10500.07..10514.10 rows=5612 width=13) (actual time=36.442..36.766 rows=9246.67 loops=3)
+        Sort Key: i.account_id
+        Sort Method: quicksort  Memory: 689kB
+        Buffers: shared hit=911 read=5684
+        Worker 0:  Sort Method: quicksort  Memory: 665kB
+        Worker 1:  Sort Method: quicksort  Memory: 666kB
+        ->  Parallel Hash Join  (cost=633.44..10150.60 rows=5612 width=13) (actual time=2.141..35.262 rows=9246.67 loops=3)
+              Hash Cond: (a.account_id = i.account_id)
+              Buffers: shared hit=897 read=5684
+              ->  Parallel Seq Scan on accounts a  (cost=0.00..9036.17 rows=183236 width=4) (actual time=0.083..19.729 rows=146666.33 loops=3)
+                    Filter: ((status)::text = ANY ('{ACTIVE,ON_HOLD}'::text[]))
+                    Rows Removed by Filter: 20000
+                    Buffers: shared hit=754 read=5684
+              ->  Parallel Hash  (cost=520.84..520.84 rows=9008 width=13) (actual time=2.021..2.021 rows=9267.67 loops=3)
+                    Buckets: 32768 (originally 16384)  Batches: 1 (originally 1)  Memory Usage: 1760kB
+                    Buffers: shared hit=143
+                    ->  Parallel Index Only Scan using idx_invoices_failed_period_account on invoices i  (cost=0.42..520.84 rows=9008 width=13) (actual time=0.032..0.874 rows=9267.67 loops=3)
+                          Index Cond: (billing_period_start = '2026-06-01'::date)
+                          Heap Fetches: 0
+                          Index Searches: 1
+                          Buffers: shared hit=143
+Planning:
+  Buffers: shared hit=316
+Planning Time: 0.965 ms
+Execution Time: 42.917 ms

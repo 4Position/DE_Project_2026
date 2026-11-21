@@ -1,0 +1,33 @@
+=== R23 run 1 ===
+Limit  (cost=5524.08..5525.00 rows=25 width=24) (actual time=20.485..20.488 rows=25.00 loops=1)
+  Buffers: shared read=819
+  ->  Index Only Scan using idx_va_started_desc_cover on viewing_activity  (cost=0.43..147772.99 rows=4012904 width=24) (actual time=0.080..15.200 rows=150025.00 loops=1)
+        Heap Fetches: 0
+        Index Searches: 1
+        Buffers: shared read=819
+Planning:
+  Buffers: shared hit=159 read=1
+Planning Time: 0.637 ms
+Execution Time: 20.507 ms
+=== R23 run 2 ===
+Limit  (cost=5524.08..5525.00 rows=25 width=24) (actual time=18.664..18.668 rows=25.00 loops=1)
+  Buffers: shared hit=819
+  ->  Index Only Scan using idx_va_started_desc_cover on viewing_activity  (cost=0.43..147772.99 rows=4012904 width=24) (actual time=0.048..13.366 rows=150025.00 loops=1)
+        Heap Fetches: 0
+        Index Searches: 1
+        Buffers: shared hit=819
+Planning:
+  Buffers: shared hit=160
+Planning Time: 0.474 ms
+Execution Time: 18.685 ms
+=== R23 run 3 ===
+Limit  (cost=5524.08..5525.00 rows=25 width=24) (actual time=18.803..18.807 rows=25.00 loops=1)
+  Buffers: shared hit=819
+  ->  Index Only Scan using idx_va_started_desc_cover on viewing_activity  (cost=0.43..147772.99 rows=4012904 width=24) (actual time=0.063..13.629 rows=150025.00 loops=1)
+        Heap Fetches: 0
+        Index Searches: 1
+        Buffers: shared hit=819
+Planning:
+  Buffers: shared hit=160
+Planning Time: 0.582 ms
+Execution Time: 18.831 ms

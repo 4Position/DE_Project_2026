@@ -1,0 +1,60 @@
+=== R13 run 1 ===
+Gather  (cost=6483.45..68489.58 rows=11 width=8) (actual time=10.555..11.826 rows=0.00 loops=1)
+  Workers Planned: 2
+  Workers Launched: 2
+  Buffers: shared read=3400
+  ->  Parallel Hash Right Anti Join  (cost=5483.45..67488.48 rows=5 width=8) (actual time=8.143..8.144 rows=0.00 loops=3)
+        Hash Cond: (v.episode_id = e.episode_id)
+        Buffers: shared read=3400
+        ->  Parallel Seq Scan on viewing_activity v  (cost=0.00..48592.43 rows=1672043 width=4) (never executed)
+        ->  Parallel Hash  (cost=5483.33..5483.33 rows=9 width=8) (actual time=8.123..8.124 rows=0.00 loops=3)
+              Buckets: 1024  Batches: 1  Memory Usage: 0kB
+              Buffers: shared read=3400
+              ->  Parallel Seq Scan on episodes e  (cost=0.00..5483.33 rows=9 width=8) (actual time=7.741..7.741 rows=0.00 loops=3)
+                    Filter: (title_id = 2523)
+                    Rows Removed by Filter: 133333
+                    Buffers: shared read=3400
+Planning:
+  Buffers: shared hit=325 read=6
+Planning Time: 1.520 ms
+Execution Time: 11.881 ms
+=== R13 run 2 ===
+Gather  (cost=6483.45..68489.58 rows=11 width=8) (actual time=8.822..10.012 rows=0.00 loops=1)
+  Workers Planned: 2
+  Workers Launched: 2
+  Buffers: shared hit=3400
+  ->  Parallel Hash Right Anti Join  (cost=5483.45..67488.48 rows=5 width=8) (actual time=6.470..6.471 rows=0.00 loops=3)
+        Hash Cond: (v.episode_id = e.episode_id)
+        Buffers: shared hit=3400
+        ->  Parallel Seq Scan on viewing_activity v  (cost=0.00..48592.43 rows=1672043 width=4) (never executed)
+        ->  Parallel Hash  (cost=5483.33..5483.33 rows=9 width=8) (actual time=6.457..6.457 rows=0.00 loops=3)
+              Buckets: 1024  Batches: 1  Memory Usage: 0kB
+              Buffers: shared hit=3400
+              ->  Parallel Seq Scan on episodes e  (cost=0.00..5483.33 rows=9 width=8) (actual time=6.434..6.434 rows=0.00 loops=3)
+                    Filter: (title_id = 2523)
+                    Rows Removed by Filter: 133333
+                    Buffers: shared hit=3400
+Planning:
+  Buffers: shared hit=331
+Planning Time: 0.868 ms
+Execution Time: 10.059 ms
+=== R13 run 3 ===
+Gather  (cost=6483.45..68489.58 rows=11 width=8) (actual time=8.271..9.379 rows=0.00 loops=1)
+  Workers Planned: 2
+  Workers Launched: 2
+  Buffers: shared hit=3400
+  ->  Parallel Hash Right Anti Join  (cost=5483.45..67488.48 rows=5 width=8) (actual time=6.018..6.019 rows=0.00 loops=3)
+        Hash Cond: (v.episode_id = e.episode_id)
+        Buffers: shared hit=3400
+        ->  Parallel Seq Scan on viewing_activity v  (cost=0.00..48592.43 rows=1672043 width=4) (never executed)
+        ->  Parallel Hash  (cost=5483.33..5483.33 rows=9 width=8) (actual time=6.002..6.002 rows=0.00 loops=3)
+              Buckets: 1024  Batches: 1  Memory Usage: 0kB
+              Buffers: shared hit=3400
+              ->  Parallel Seq Scan on episodes e  (cost=0.00..5483.33 rows=9 width=8) (actual time=5.985..5.985 rows=0.00 loops=3)
+                    Filter: (title_id = 2523)
+                    Rows Removed by Filter: 133333
+                    Buffers: shared hit=3400
+Planning:
+  Buffers: shared hit=331
+Planning Time: 0.817 ms
+Execution Time: 9.423 ms

@@ -1,0 +1,42 @@
+=== W02 run 1 ===
+Insert on my_list  (cost=0.00..0.01 rows=0 width=0) (actual time=0.988..0.988 rows=0.00 loops=1)
+  Conflict Resolution: NOTHING
+  Conflict Arbiter Indexes: my_list_pkey
+  Tuples Inserted: 1
+  Conflicting Tuples: 0
+  Buffers: shared hit=13 read=8 dirtied=3
+  ->  Result  (cost=0.00..0.01 rows=1 width=16) (actual time=0.001..0.001 rows=1.00 loops=1)
+Planning:
+  Buffers: shared hit=37
+Planning Time: 0.080 ms
+Trigger for constraint fk_my_list_profile: time=0.835 calls=1
+Trigger for constraint fk_my_list_title: time=0.409 calls=1
+Execution Time: 2.262 ms
+=== W02 run 2 ===
+Insert on my_list  (cost=0.00..0.01 rows=0 width=0) (actual time=0.183..0.183 rows=0.00 loops=1)
+  Conflict Resolution: NOTHING
+  Conflict Arbiter Indexes: my_list_pkey
+  Tuples Inserted: 1
+  Conflicting Tuples: 0
+  Buffers: shared hit=20 read=1 dirtied=1
+  ->  Result  (cost=0.00..0.01 rows=1 width=16) (actual time=0.001..0.001 rows=1.00 loops=1)
+Planning:
+  Buffers: shared hit=37
+Planning Time: 0.073 ms
+Trigger for constraint fk_my_list_profile: time=0.479 calls=1
+Trigger for constraint fk_my_list_title: time=0.340 calls=1
+Execution Time: 1.029 ms
+=== W02 run 3 ===
+Insert on my_list  (cost=0.00..0.01 rows=0 width=0) (actual time=0.185..0.185 rows=0.00 loops=1)
+  Conflict Resolution: NOTHING
+  Conflict Arbiter Indexes: my_list_pkey
+  Tuples Inserted: 1
+  Conflicting Tuples: 0
+  Buffers: shared hit=20 read=1 dirtied=1
+  ->  Result  (cost=0.00..0.01 rows=1 width=16) (actual time=0.000..0.001 rows=1.00 loops=1)
+Planning:
+  Buffers: shared hit=37
+Planning Time: 0.077 ms
+Trigger for constraint fk_my_list_profile: time=0.466 calls=1
+Trigger for constraint fk_my_list_title: time=0.323 calls=1
+Execution Time: 1.002 ms

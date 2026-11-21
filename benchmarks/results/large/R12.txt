@@ -1,0 +1,66 @@
+=== R12 run 1 ===
+GroupAggregate  (cost=11109.30..11316.66 rows=1060 width=48) (actual time=16.599..18.587 rows=6.00 loops=1)
+  Group Key: (date_trunc('month'::text, (cancelled_on)::timestamp with time zone))
+  Buffers: shared hit=1106 read=5402
+  ->  Gather Merge  (cost=11109.30..11280.74 rows=1472 width=16) (actual time=16.291..17.841 rows=11787.00 loops=1)
+        Workers Planned: 2
+        Workers Launched: 2
+        Buffers: shared hit=1106 read=5402
+        ->  Sort  (cost=10109.28..10110.81 rows=613 width=16) (actual time=13.927..14.069 rows=3929.00 loops=3)
+              Sort Key: (date_trunc('month'::text, (cancelled_on)::timestamp with time zone))
+              Sort Method: quicksort  Memory: 339kB
+              Buffers: shared hit=1106 read=5402
+              Worker 0:  Sort Method: quicksort  Memory: 203kB
+              Worker 1:  Sort Method: quicksort  Memory: 211kB
+              ->  Parallel Seq Scan on accounts  (cost=0.00..10080.90 rows=613 width=16) (actual time=0.168..13.524 rows=3929.00 loops=3)
+                    Filter: ((cancelled_on >= '2026-01-01'::date) AND (cancelled_on < '2027-01-01'::date) AND ((status)::text = 'CANCELLED'::text))
+                    Rows Removed by Filter: 162738
+                    Buffers: shared hit=1030 read=5402
+Planning:
+  Buffers: shared hit=189 read=2
+Planning Time: 0.643 ms
+Execution Time: 18.630 ms
+=== R12 run 2 ===
+GroupAggregate  (cost=11109.30..11316.66 rows=1060 width=48) (actual time=16.573..18.549 rows=6.00 loops=1)
+  Group Key: (date_trunc('month'::text, (cancelled_on)::timestamp with time zone))
+  Buffers: shared hit=1388 read=5120
+  ->  Gather Merge  (cost=11109.30..11280.74 rows=1472 width=16) (actual time=16.268..17.793 rows=11787.00 loops=1)
+        Workers Planned: 2
+        Workers Launched: 2
+        Buffers: shared hit=1388 read=5120
+        ->  Sort  (cost=10109.28..10110.81 rows=613 width=16) (actual time=14.201..14.340 rows=3929.00 loops=3)
+              Sort Key: (date_trunc('month'::text, (cancelled_on)::timestamp with time zone))
+              Sort Method: quicksort  Memory: 336kB
+              Buffers: shared hit=1388 read=5120
+              Worker 0:  Sort Method: quicksort  Memory: 206kB
+              Worker 1:  Sort Method: quicksort  Memory: 212kB
+              ->  Parallel Seq Scan on accounts  (cost=0.00..10080.90 rows=613 width=16) (actual time=0.100..13.769 rows=3929.00 loops=3)
+                    Filter: ((cancelled_on >= '2026-01-01'::date) AND (cancelled_on < '2027-01-01'::date) AND ((status)::text = 'CANCELLED'::text))
+                    Rows Removed by Filter: 162738
+                    Buffers: shared hit=1312 read=5120
+Planning:
+  Buffers: shared hit=191
+Planning Time: 0.554 ms
+Execution Time: 18.591 ms
+=== R12 run 3 ===
+GroupAggregate  (cost=11109.30..11316.66 rows=1060 width=48) (actual time=17.599..19.662 rows=6.00 loops=1)
+  Group Key: (date_trunc('month'::text, (cancelled_on)::timestamp with time zone))
+  Buffers: shared hit=1670 read=4838
+  ->  Gather Merge  (cost=11109.30..11280.74 rows=1472 width=16) (actual time=17.277..18.863 rows=11787.00 loops=1)
+        Workers Planned: 2
+        Workers Launched: 2
+        Buffers: shared hit=1670 read=4838
+        ->  Sort  (cost=10109.28..10110.81 rows=613 width=16) (actual time=14.974..15.116 rows=3929.00 loops=3)
+              Sort Key: (date_trunc('month'::text, (cancelled_on)::timestamp with time zone))
+              Sort Method: quicksort  Memory: 344kB
+              Buffers: shared hit=1670 read=4838
+              Worker 0:  Sort Method: quicksort  Memory: 206kB
+              Worker 1:  Sort Method: quicksort  Memory: 204kB
+              ->  Parallel Seq Scan on accounts  (cost=0.00..10080.90 rows=613 width=16) (actual time=0.087..14.562 rows=3929.00 loops=3)
+                    Filter: ((cancelled_on >= '2026-01-01'::date) AND (cancelled_on < '2027-01-01'::date) AND ((status)::text = 'CANCELLED'::text))
+                    Rows Removed by Filter: 162738
+                    Buffers: shared hit=1594 read=4838
+Planning:
+  Buffers: shared hit=191
+Planning Time: 0.564 ms
+Execution Time: 19.705 ms
